@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números com JS</title>
+    <style>
+        body { font: 12pt Arial; }
+        button { font-size: 12pt; padding: 30px;  }
+    </style>
+</head>
+<body>
+    <h1>Trabalhando com números</h1>
+    <input type="text" id="num" placeholder="Digite um número">
+    <button onclick="calcular()">Clique para calcular</button>
+    <section id="res">
+        <p>O resultado vem aqui...</p>
+    </section>
+
+    <script>
+        function calcular() {
+            let n1 = Number(document.getElementById('num').value)
+            let res = document.getElementById('res')
+            if (n1 == 0) {
+                res.innerHTML = `<p>Por favor, digite um número válido!</p>`
+                return
+            }
+            if (isNaN(n1)) {
+                res.innerHTML = `<p>Por favor, digite um número válido!</p>`
+                return
+            }
+            if (n1 < 0) {
+                res.innerHTML = `<p>Por favor, digite um número positivo!</p>`
+                return
+            }
+            if (n1 > 100) {
+                res.innerHTML = `<p>Por favor, digite um número menor que 100!</p>`
+                return
+            }
+            res.innerHTML = `<p>O dobro de ${n1} é ${n1*2} e a metade é ${n1/2}!</p>`
+        }
+    </script>
+</body>
+</html>
